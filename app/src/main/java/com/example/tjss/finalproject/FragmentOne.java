@@ -3,13 +3,13 @@ package com.example.tjss.finalproject;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 public class FragmentOne extends Fragment implements View.OnClickListener{
@@ -22,8 +22,6 @@ public class FragmentOne extends Fragment implements View.OnClickListener{
     private EditText mTitle;
     private EditText mGenre;
     private EditText mYear;
-    private String TAG;
-    private String Msg;
     private FragmentOneInterface mCallback;
     private Context mContext;
 
@@ -71,9 +69,19 @@ public class FragmentOne extends Fragment implements View.OnClickListener{
         return rootView;
     }
 
+    public void Success_Toast(){
+        CharSequence text = "New movie created. It will appear at the bottom of the list.";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(mContext, text, duration);
+        toast.show();
+
+
+    }
+
 public void makeToast(){
     CharSequence text = "You must put a value in all Fields";
-    int duration = Toast.LENGTH_LONG;
+    int duration = Toast.LENGTH_SHORT;
 
     Toast toast = Toast.makeText(mContext, text, duration);
     toast.show();
@@ -82,7 +90,7 @@ public void makeToast(){
 
     @Override
     public void onClick(View view) {
-        TAG="Logtag";
+
 
 
         mTitleVal = mTitle.getText().toString();
@@ -90,7 +98,7 @@ public void makeToast(){
         mYearVal = mYear.getText().toString();
 
 
-        Msg=mTitleVal+":"+mGenreVal+":"+mYearVal;
+
 
 
         boolean fail;
@@ -98,7 +106,8 @@ public void makeToast(){
         if (fail == false) {
             Movie movie = new Movie(mTitleVal, mGenreVal, mYearVal);
             mCallback.addNewMovie(movie);
-            Log.i(TAG,"fgh");
+            Success_Toast();
+
         } else {
             makeToast();
         }

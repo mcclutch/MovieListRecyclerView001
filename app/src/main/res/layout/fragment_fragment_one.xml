@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.tjss.finalproject.FragmentOne">
+    tools:context="com.example.tjss.finalproject.FragmentOne"
+    android:paddingBottom="10dp">
 
     <!-- TODO: Update blank fragment layout -->
 <EditText
@@ -10,7 +11,7 @@
     android:layout_width="200dp"
     android:layout_height="50dp"
     android:layout_centerHorizontal="true"
-android:layout_centerVertical="true"
+
     android:hint="Title:"
     />
     <EditText
@@ -40,6 +41,12 @@ android:layout_centerVertical="true"
         android:text="Make new movie"
 
         />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Swipe to the right to view previously created movies!"
+   android:layout_below="@+id/Button01"
+    android:layout_centerHorizontal="true"/>
 
 
 </RelativeLayout>
